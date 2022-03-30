@@ -1,3 +1,4 @@
+# must install tabulate with pip or this won't work
 from tabulate import tabulate
 
 vars = list(filter(lambda x: x.isalpha(), input("Enter variables: ")))
