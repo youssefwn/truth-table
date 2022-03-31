@@ -81,7 +81,11 @@ while choice != 4:
 							if value[i][j] != row[k]: new = False
 					row.append(int(new))
 
-			full_table.insert(0, vars + terms)
+			for row in full_table:
+				final = all(row[-len(terms):])
+				row.append(1 if final else 0)				
+
+			full_table.insert(0, vars + terms + ["F"])
 
 	elif choice == 3:
 		if function == None: print("\nERROR: Enter a function first")
