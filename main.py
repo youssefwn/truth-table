@@ -24,9 +24,8 @@ for i in range(n):
 			j = 0
 		j += 1
 
-table.insert(0, vars)
-
 full_table = list(table)
+table.insert(0, vars)
 function = choice = None
 
 while choice != 4:
@@ -73,8 +72,16 @@ while choice != 4:
 						i = terms.index(term)
 						value[i][filtered_list[i].index(n)] = False
 
-			full_table[0] += terms
-			# wip
+			for row in full_table:
+				for i, item in enumerate(filtered_list):
+					new = True
+					for j, letter in enumerate(item):
+						if letter in vars:
+							k = vars.index(letter)
+							if value[i][j] != row[k]: new = False
+					row.append(int(new))
+
+			full_table.insert(0, vars + terms)
 
 	elif choice == 3:
 		if function == None: print("\nERROR: Enter a function first")
