@@ -82,7 +82,7 @@ while choice != 4:
 					row.append(int(new))
 
 			for row in full_table:
-				final = all(row[-len(terms):])
+				final = any(row[-len(terms):])
 				row.append(1 if final else 0)				
 
 			full_table.insert(0, vars + terms + ["F"])
